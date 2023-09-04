@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class Engine {
         int count = 0;
         if (numberGame.equals("0")) {
             System.exit(0);
-        } else if (Integer.parseInt(numberGame) > 4) {
+        } else if (Integer.parseInt(numberGame) > 5) {
             System.out.println("You entered an invalid request");
             System.exit(0);
         }
@@ -38,11 +39,15 @@ public class Engine {
                     System.out.println("Find the greatest common divisor of given numbers.");
                     output = GCD.greatestCommonDivisor();
                     break;
+                case "5":
+                    System.out.println("What number is missing in the progression?");
+                    output = Progression.arithmeticProgression();
+                    break;
                 default:
                     break;
             }
             System.out.println("Question: " + output.get("quest"));
-            System.out.println("Your answer: ");
+            System.out.print("Your answer: ");
             Scanner myObjGame = new Scanner(System.in);
             String answer = myObjGame.nextLine();
             if (output.get("answer").equals(answer)) {
