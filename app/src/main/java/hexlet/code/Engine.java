@@ -1,26 +1,60 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.toString;
 
 public class Engine {
-    public static void gameEngine(String quest, String result, int count) {
-        System.out.println("Question: " + quest);
-        System.out.println("Your answer: ");
-        Scanner myObjGame = new Scanner(System.in);
-        String answer = myObjGame.nextLine();
-        if (result.equals(answer)) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
-            System.out.println("Let's try again, " + Cli.getUserName() + "!");
+    public static void gameEngine(String numberGame) {
+        Map<String, String> output = new HashMap<>();
+        int count = 0;
+        if (numberGame.equals("0")) {
+            System.exit(0);
+        } else if (Integer.parseInt(numberGame) > 4) {
+            System.out.println("You entered an invalid request");
             System.exit(0);
         }
-        if (count == 2) {
-            System.out.println("Congratulations, " + Cli.getUserName() + "!");
-            System.exit(0);
+        Cli.greetUserName();
+        while (count < 3) {
+            switch (numberGame) {
+                case "1":
+                    System.exit(0);
+                case "2":
+                    System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+                    output = Even.parityNumber();
+                    break;
+                case "3":
+                    System.out.println("What is the result of the expression?");
+                    output = Calc.calculator();
+                    break;
+                case "4":
+                    System.out.println("Find the greatest common divisor of given numbers.");
+                    output = GCD.greatestCommonDivisor();
+                    break;
+                default:
+                    break;
+            }
+            System.out.println("Question: " + output.get("quest"));
+            System.out.println("Your answer: ");
+            Scanner myObjGame = new Scanner(System.in);
+            String answer = myObjGame.nextLine();
+            if (output.get("answer").equals(answer)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + output.get("answer") + "'.");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
+                System.exit(0);
+            }
+            count++;
         }
+        System.out.println("Congratulations, " + Cli.getUserName() + "!");
+        System.exit(0);
     }
 }
