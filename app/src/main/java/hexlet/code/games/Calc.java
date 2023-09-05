@@ -25,7 +25,7 @@ public class Calc {
             default:
                 break;
         }
-        output.put("quest", Integer.toString(randomNumberOne) + operand + Integer.toString(randomNumberTwo));
+        output.put("quest", randomNumberOne + " " + operand + " " + randomNumberTwo);
         output.put("answer", Integer.toString(result));
         return output;
     }

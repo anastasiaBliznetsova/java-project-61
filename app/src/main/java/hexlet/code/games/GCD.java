@@ -10,7 +10,7 @@ public class GCD {
         int randomNumberOne = (int) (Math.random() * ++maxValue);
         int randomNumberTwo = (int) (Math.random() * ++maxValue);
         int result = euclidsAlgorithm(randomNumberOne, randomNumberTwo);
-        output.put("quest", Integer.toString(randomNumberOne) + " " + Integer.toString(randomNumberTwo));
+        output.put("quest", randomNumberOne + " " + randomNumberTwo);
         output.put("answer", Integer.toString(result));
         return output;
     }
