@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Progression {
-    private static final int valueForRirstNumber = 20;
-    private static final int valueForStep = 8;
-    private static final int valueForMissingNumber = 9;
+    private static final int VAKUE_FOR_NUMBER = 20;
+    private static final int VALUE_FOR_STEP = 8;
+    private static final int VALUE_FOR_MISSING_NUMBER = 9;
     public static Map<String, String> arithmeticProgression() {
         Map<String, String> output = new HashMap<>();
 
-        int firstNumber = (int) (Math.random() * valueForRirstNumber);
-        int step = (int) (Math.random() * valueForStep) + 2;
-        int missingNumber = (int) (Math.random() * valueForMissingNumber);
+        int firstNumber = (int) (Math.random() * VAKUE_FOR_NUMBER);
+        int step = (int) (Math.random() * VALUE_FOR_STEP) + 2;
+        int missingNumber = (int) (Math.random() * VALUE_FOR_MISSING_NUMBER);
         String quest = "";
         String result = "";
 
