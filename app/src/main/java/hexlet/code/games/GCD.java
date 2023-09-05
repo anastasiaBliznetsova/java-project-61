@@ -1,14 +1,11 @@
 package hexlet.code.games;
-
-import hexlet.code.Cli;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class GCD {
 
     public static Map<String, String> greatestCommonDivisor() {
-        Map <String, String> output = new HashMap<>();
+        Map<String, String> output = new HashMap<>();
         int maxValue = 20;
         int randomNumberOne = (int) (Math.random() * ++maxValue);
         int randomNumberTwo = (int) (Math.random() * ++maxValue);
@@ -18,7 +15,7 @@ public class GCD {
         return output;
     }
     public static int euclidsAlgorithm(int numberOne, int numberTwo) {
-        if(numberTwo == 0) {
+        if (numberTwo == 0) {
             return numberOne;
         }
         return euclidsAlgorithm(numberTwo, numberOne % numberTwo);

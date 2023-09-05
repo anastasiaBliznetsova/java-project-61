@@ -1,16 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
-import static java.lang.Integer.toString;
 
 public class Engine {
     public static void gameEngine(String numberGame) {
@@ -18,7 +12,7 @@ public class Engine {
         int count = 0;
         if (numberGame.equals("0")) {
             System.exit(0);
-        } else if (Integer.parseInt(numberGame) > 5) {
+        } else if (Integer.parseInt(numberGame) > 6) {
             System.out.println("You entered an invalid request");
             System.exit(0);
         }
@@ -43,6 +37,10 @@ public class Engine {
                     System.out.println("What number is missing in the progression?");
                     output = Progression.arithmeticProgression();
                     break;
+                case "6":
+                    System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                    output = Prime.PrimeNumber();
+                    break;
                 default:
                     break;
             }
@@ -53,7 +51,8 @@ public class Engine {
             if (output.get("answer").equals(answer)) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + output.get("answer") + "'.");
+                System.out.print("'" + answer + "' is wrong answer ;(. ");
+                System.out.println("Correct answer was '" + output.get("answer") + "'.");
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 System.exit(0);
             }

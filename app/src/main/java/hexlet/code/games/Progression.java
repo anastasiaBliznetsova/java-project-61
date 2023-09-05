@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Progression {
     public static Map<String, String> arithmeticProgression() {
-        Map <String, String> output = new HashMap<>();
+        Map<String, String> output = new HashMap<>();
         int valueForRirstNumber = 20;
         int valueForStep = 8;
         int valueForMissingNumber = 9;
