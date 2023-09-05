@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Even;
+import hexlet.code.games.Progression;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Calc;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +43,7 @@ public class Engine {
                     break;
                 case "6":
                     System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                    output = Prime.PrimeNumber();
+                    output = Prime.primeNumber();
                     break;
                 default:
                     break;
