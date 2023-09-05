@@ -8,6 +8,7 @@ public class Even {
         Map<String, String> output = new HashMap<>();
         var result = "";
         int maxValue = 20;
+
         int randomNumber = (int) (Math.random() * ++maxValue);
         if (randomNumber % 2 == 0) {
             result = "yes";

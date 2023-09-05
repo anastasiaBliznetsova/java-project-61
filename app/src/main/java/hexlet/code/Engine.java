@@ -14,16 +14,14 @@ public class Engine {
     public static void gameEngine(String numberGame) {
         Map<String, String> output = new HashMap<>();
         int count = 0;
-        if (numberGame.equals("0")) {
-            System.exit(0);
-        } else if (Integer.parseInt(numberGame) > 6) {
-            System.out.println("You entered an invalid request");
-            System.exit(0);
+        int maxIteration = 3;
+
+        if (Integer.parseInt(numberGame) > 0 && Integer.parseInt(numberGame) < 7) {
+            Cli.greetUserName();
         }
-        Cli.greetUserName();
-        while (count < 3) {
+        while (count < maxIteration) {
             switch (numberGame) {
-                case "1":
+                case "0", "1":
                     System.exit(0);
                 case "2":
                     System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
@@ -46,7 +44,8 @@ public class Engine {
                     output = Prime.primeNumber();
                     break;
                 default:
-                    break;
+                    System.out.println("You entered an invalid request");
+                    System.exit(0);
             }
             System.out.println("Question: " + output.get("quest"));
             System.out.print("Your answer: ");

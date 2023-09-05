@@ -6,7 +6,9 @@ public class GCD {
 
     public static Map<String, String> greatestCommonDivisor() {
         Map<String, String> output = new HashMap<>();
+
         int maxValue = 20;
+
         int randomNumberOne = (int) (Math.random() * ++maxValue);
         int randomNumberTwo = (int) (Math.random() * ++maxValue);
         int result = euclidsAlgorithm(randomNumberOne, randomNumberTwo);
