@@ -3,15 +3,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Calc {
+    private static final int MAX_VALUE = 20;
+    private static final int MAX_VALUE_FOR_OPERAND = 4;
     public static Map<String, String> calculator() {
         Map<String, String> output = new HashMap<>();
         int result = 0;
-        int maxValue = 20;
-        int maxValueForOperand = 4;
-        int randomNumberOne = (int) (Math.random() * ++maxValue);
-        int randomNumberTwo = (int) (Math.random() * ++maxValue);
-        int valueForOperand = (int) (Math.random() * (maxValueForOperand - 1) + 1);
-        String operand = randomOperand(valueForOperand);
+
+        int randomNumberOne = (int) (Math.random() * MAX_VALUE);
+        int randomNumberTwo = (int) (Math.random() * MAX_VALUE);
+        int valueForOperand = (int) (Math.random() * (MAX_VALUE_FOR_OPERAND - 1) + 1);
+        String operand = randomOperand(Integer.toString(valueForOperand));
         switch (operand) {
             case "-":
                 result = randomNumberOne - randomNumberTwo;
@@ -29,13 +30,13 @@ public class Calc {
         output.put("answer", Integer.toString(result));
         return output;
     }
-    public static String randomOperand(int number) {
+    public static String randomOperand(String number) {
         switch (number) {
-            case 1:
+            case "1":
                 return "+";
-            case 2:
+            case "2":
                 return "-";
-            case 3:
+            case "3":
                 return "*";
             default:
                 break;

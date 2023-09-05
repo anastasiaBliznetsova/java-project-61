@@ -3,13 +3,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Even {
-    private static boolean printQ = true;
+    private static final int MAX_VALUE = 20;
     public static Map<String, String> parityNumber() {
         Map<String, String> output = new HashMap<>();
         var result = "";
-        int maxValue = 20;
 
-        int randomNumber = (int) (Math.random() * ++maxValue);
+        int randomNumber = (int) (Math.random() * MAX_VALUE);
         if (randomNumber % 2 == 0) {
             result = "yes";
         } else {

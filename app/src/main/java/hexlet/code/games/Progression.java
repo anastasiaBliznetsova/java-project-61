@@ -7,6 +7,7 @@ public class Progression {
     private static final int VAKUE_FOR_NUMBER = 20;
     private static final int VALUE_FOR_STEP = 8;
     private static final int VALUE_FOR_MISSING_NUMBER = 9;
+    private static final int PROGRESSION_COUNT = 10;
     public static Map<String, String> arithmeticProgression() {
         Map<String, String> output = new HashMap<>();
 
@@ -16,7 +17,7 @@ public class Progression {
         String quest = "";
         String result = "";
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < PROGRESSION_COUNT; i++) {
             if (i == missingNumber) {
                 quest += ".. ";
                 result = Integer.toString((step * (i + 1)) + firstNumber);

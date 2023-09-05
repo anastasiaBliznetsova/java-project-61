@@ -11,15 +11,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Engine {
+    private static final int MAX_ITERATION = 3;
+    private static final int MAX_MENU_COUNT = 7;
+
     public static void gameEngine(String numberGame) {
         Map<String, String> output = new HashMap<>();
         int count = 0;
-        int maxIteration = 3;
-
-        if (Integer.parseInt(numberGame) > 0 && Integer.parseInt(numberGame) < 7) {
+        if (Integer.parseInt(numberGame) > 0 && Integer.parseInt(numberGame) < MAX_MENU_COUNT) {
             Cli.greetUserName();
         }
-        while (count < maxIteration) {
+        while (count < MAX_ITERATION) {
             switch (numberGame) {
                 case "0", "1":
                     System.exit(0);
