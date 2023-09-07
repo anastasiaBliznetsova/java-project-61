@@ -1,22 +1,22 @@
 package hexlet.code.games;
-import java.util.HashMap;
-import java.util.Map;
+import hexlet.code.Engine;
 
 public class Even {
     private static final int MAX_VALUE = 20;
-    public static Map<String, String> parityNumber() {
-        Map<String, String> output = new HashMap<>();
+    private static final int MAX_ITERATION = 3;
+    public static void parityNumber() {
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         var result = "";
-
-        int randomNumber = (int) (Math.random() * MAX_VALUE);
-        if (randomNumber % 2 == 0) {
-            result = "yes";
-        } else {
-            result = "no";
+        String[][] output = new String[MAX_ITERATION][2];
+        int count = 0;
+        while (count < MAX_ITERATION) {
+            int randomNumber = (int) (Math.random() * MAX_VALUE);
+            result = randomNumber % 2 == 0 ? "yes" : "no";
+            output[count][0] = Integer.toString(randomNumber);
+            output[count][1] = result;
+            count++;
         }
-        output.put("quest", Integer.toString(randomNumber));
-        output.put("answer", result);
-        return output;
+        Engine.gameEngine(output);
     }
 
 }

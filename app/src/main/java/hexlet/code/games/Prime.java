@@ -1,24 +1,28 @@
 package hexlet.code.games;
-import java.util.HashMap;
-import java.util.Map;
-import org.apache.commons.lang3.ArrayUtils;
+import hexlet.code.Engine;
 
 public class Prime {
+    private static final int MAX_ITERATION = 3;
     private static final int MAX_VALUE = 30;
-    private static final int[] ARRAY_PRIME = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
-    public static Map<String, String> primeNumber() {
-        Map<String, String> output = new HashMap<>();
-        var result = "";
-        int randomNumber = (int) (Math.random() * MAX_VALUE);
-
-        int indexPrimeNumber = ArrayUtils.indexOf(ARRAY_PRIME, randomNumber);
-        if (indexPrimeNumber != -1) {
-            result = "yes";
-        } else {
-            result = "no";
+    public static void primeNumber() {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        String[][] output = new String[MAX_ITERATION][2];
+        int count = 0;
+        while (count < MAX_ITERATION) {
+            int randomNumber = (int) (Math.random() * MAX_VALUE);
+            output[count][0] = Integer.toString(randomNumber);
+            output[count][1] = isPrimeNumber(randomNumber) ? "yes" : "no";
+            count++;
         }
-        output.put("quest", Integer.toString(randomNumber));
-        output.put("answer", result);
-        return output;
+        Engine.gameEngine(output);
+    }
+    public static boolean isPrimeNumber(int number) {
+        if(number < 2) return false;
+        for(int i = 2; i < number / 2; i++) {
+            if(number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
