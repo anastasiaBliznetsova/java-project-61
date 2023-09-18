@@ -20,8 +20,8 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        Scanner myObj = new Scanner(System.in);
-        String numberGame = myObj.nextLine();
+        Scanner enteringGameNumber = new Scanner(System.in);
+        String numberGame = enteringGameNumber.nextLine();
         if (Integer.parseInt(numberGame) > 0 && Integer.parseInt(numberGame) < MAX_MENU_COUNT) {
             Cli.greetUserName();
         }
@@ -29,25 +29,23 @@ public class App {
             case "0", "1":
                 System.exit(0);
             case "2":
-                Even.parityNumber();
+                Even.findingNumberEven();
                 break;
             case "3":
-                Calc.calculator();
+                Calc.calculateExpression();
                 break;
             case "4":
-                GCD.greatestCommonDivisor();
+                GCD.findGreatestCommonDivisor();
                 break;
             case "5":
-                Progression.arithmeticProgression();
+                Progression.calculateArithmeticProgression();
                 break;
             case "6":
-                Prime.primeNumber();
+                Prime.findPrimeNumber();
                 break;
             default:
                 System.out.println("You entered an invalid request");
                 System.exit(0);
         }
-
-
     }
 }

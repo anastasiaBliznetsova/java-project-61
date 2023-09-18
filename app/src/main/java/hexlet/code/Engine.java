@@ -2,22 +2,28 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static void gameEngine(String[][] output) {
-        int count = 0;
-        while (count < output.length) {
-            System.out.println("Question: " + output[count][0]);
+    private static final int MAX_ROUNDS = 3;
+    public static int getMaxRounds() {
+        return MAX_ROUNDS;
+    }
+
+    public static void playRounds(String rules, String[][] rounds) {
+        System.out.println(rules);
+        for (String[] round : rounds) {
+            String correctAnswer = round[1];
+            String question = round[0];
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            Scanner myObjGame = new Scanner(System.in);
-            String answer = myObjGame.nextLine();
-            if (output[count][1].equals(answer)) {
-                System.out.println("Correct!");
-            } else {
-                System.out.print("'" + answer + "' is wrong answer ;(. ");
-                System.out.println("Correct answer was '" + output[count][1] + "'.");
+            Scanner enteringAnswer = new Scanner(System.in);
+            String userAnswer = enteringAnswer.nextLine();
+            if (!correctAnswer.equals(userAnswer)) {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. "
+                        + "Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
-                System.exit(0);
+                enteringAnswer.close();
+                return;
             }
-            count++;
+            System.out.println("Correct!");
         }
         System.out.println("Congratulations, " + Cli.getUserName() + "!");
         System.exit(0);

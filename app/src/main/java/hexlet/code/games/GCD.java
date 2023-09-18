@@ -1,28 +1,29 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
-    private static final int MAX_VALUE = 20;
-    private static final int MAX_ITERATION = 3;
-    public static void greatestCommonDivisor() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-        String[][] output = new String[MAX_ITERATION][2];
-        int count = 0;
-        while (count < MAX_ITERATION) {
-            int randomNumberOne = (int) (Math.random() * MAX_VALUE);
-            int randomNumberTwo = (int) (Math.random() * MAX_VALUE);
-            int result = euclideanAlgorithm(randomNumberOne, randomNumberTwo);
-            output[count][0] = randomNumberOne + " " + randomNumberTwo;
-            output[count][1] = Integer.toString(result);
-            count++;
+    private static final int MAX_COLS = 2;
+    public static void findGreatestCommonDivisor() {
+        String rules = "Find the greatest common divisor of given numbers.";
+        String[][] rounds = new String[Engine.getMaxRounds()][MAX_COLS];
+        for (int i = 0; i < Engine.getMaxRounds(); i++) {
+            rounds[i] = generateRoundData();
         }
-        Engine.gameEngine(output);
+        Engine.playRounds(rules, rounds);
     }
-    public static int euclideanAlgorithm(int
-                                               numberOne, int numberTwo) {
+
+    private static String[] generateRoundData() {
+        int randomNumberOne = Utils.generateRandom(1, 20);
+        int randomNumberTwo = Utils.generateRandom(1, 20);
+        String answer = Integer.toString(calculateEuclidAlg(randomNumberOne, randomNumberTwo));
+        String question = randomNumberOne + " " + randomNumberTwo;
+        return new String[] {question, answer};
+    }
+    public static int calculateEuclidAlg(int numberOne, int numberTwo) {
         if (numberTwo == 0) {
             return numberOne;
         }
-        return euclideanAlgorithm(numberTwo, numberOne % numberTwo);
+        return calculateEuclidAlg(numberTwo, numberOne % numberTwo);
     }
 }
