@@ -19,7 +19,7 @@ public class Progression {
         int firstNumber = Utils.generateRandom(0, 20);
         int step = Utils.generateRandom(2, 8);
         String[] progression = generateProgression(firstNumber, step);
-        int missingNumber = Utils.generateRandom(0, PROGRESSION_COUNT);
+        int missingNumber = Utils.generateRandom(0, PROGRESSION_COUNT - 1);
         String answer = progression[missingNumber];
         progression[missingNumber] = "..";
         var question = String.join(" ", progression);
