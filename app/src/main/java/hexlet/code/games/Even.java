@@ -4,6 +4,7 @@ import hexlet.code.Utils;
 
 public class Even {
     private static final int MAX_COLS = 2;
+    private static final int MAX_VALUE = 20;
     public static void findingNumberEven() {
         String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         var result = "";
@@ -14,7 +15,7 @@ public class Even {
         Engine.playRounds(rules, rounds);
     }
     private static String[] generateRoundData() {
-        int randomNumber = Utils.generateRandom(0, 20);
+        int randomNumber = Utils.generateRandom(0, MAX_VALUE);
         String answer = randomNumber % 2 == 0 ? "yes" : "no";
         String question = Integer.toString(randomNumber);
         return new String[] {question, answer};

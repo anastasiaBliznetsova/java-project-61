@@ -4,6 +4,7 @@ import hexlet.code.Utils;
 
 public class GCD {
     private static final int MAX_COLS = 2;
+    private static final int MAX_VALUE = 20;
     public static void findGreatestCommonDivisor() {
         String rules = "Find the greatest common divisor of given numbers.";
         String[][] rounds = new String[Engine.getMaxRounds()][MAX_COLS];
@@ -14,8 +15,8 @@ public class GCD {
     }
 
     private static String[] generateRoundData() {
-        int randomNumberOne = Utils.generateRandom(1, 20);
-        int randomNumberTwo = Utils.generateRandom(1, 20);
+        int randomNumberOne = Utils.generateRandom(1, MAX_VALUE);
+        int randomNumberTwo = Utils.generateRandom(1, MAX_VALUE);
         String answer = Integer.toString(calculateEuclidAlg(randomNumberOne, randomNumberTwo));
         String question = randomNumberOne + " " + randomNumberTwo;
         return new String[] {question, answer};

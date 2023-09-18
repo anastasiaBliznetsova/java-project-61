@@ -4,6 +4,7 @@ import hexlet.code.Utils;
 
 public class Prime {
     private static final int MAX_COLS = 2;
+    private static final int MAX_VALUE = 30;
     public static void findPrimeNumber() {
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] rounds = new String[Engine.getMaxRounds()][MAX_COLS];
@@ -14,7 +15,7 @@ public class Prime {
     }
 
     private static String[] generateRoundData() {
-        int randomNumber = Utils.generateRandom(0, 30);
+        int randomNumber = Utils.generateRandom(0, MAX_VALUE);
         String question = Integer.toString(randomNumber);
         String answer = isPrimeNumber(randomNumber) ? "yes" : "no";
         return new String[] {question, answer};

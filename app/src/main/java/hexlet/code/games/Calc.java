@@ -4,6 +4,7 @@ import hexlet.code.Utils;
 
 public class Calc {
     private static final int MAX_COLS = 2;
+    private static final int MAX_VALUE = 20;
     public static void calculateExpression() {
         String rules = "What is the result of the expression?";
         String[][] rounds = new String[Engine.getMaxRounds()][MAX_COLS];
@@ -14,8 +15,8 @@ public class Calc {
     }
 
     private static String[] generateRoundData() {
-        int randomNumberOne = Utils.generateRandom(1, 20);
-        int randomNumberTwo = Utils.generateRandom(1, 20);
+        int randomNumberOne = Utils.generateRandom(1, MAX_VALUE);
+        int randomNumberTwo = Utils.generateRandom(1, MAX_VALUE);
         String operand = getRandomOperand();
         String question = generateQuestion(operand, randomNumberOne, randomNumberTwo);
         String answer = Integer.toString(generateAnswer(operand, randomNumberOne, randomNumberTwo));
